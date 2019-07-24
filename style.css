@@ -1,0 +1,22 @@
+#center {
+    margin: 0 auto;
+}
+
+.btn {
+    font-size:25px;
+}
+
+.btn-group-vertical {
+    /* border: 1px solid red; */
+    width:100%;
+    
+}
+
+button {
+    font-size: 32px;
+    width:100%;
+}
+
+.jumbotron{
+    
+}
