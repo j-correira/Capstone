@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pickup-Shift || Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+
+    <!-- carousel links-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css">
+
+
+
+<!-- Carousel Javascript -->
+<script>
+        // Initialize all div with carousel class
+
+
+var carousels = bulmaCarousel.attach('.carousel', options);
+
+
+
+// Loop on each carousel initialized
+for(var i = 0; i < carousels.length; i++) {
+	// Add listener to  event
+	carousels[i].on('before:show', state => {
+		console.log(state);
+	});
+}
+
+// Access to bulmaCarousel instance of an element
+var element = document.querySelector('#my-element');
+if (element && element.bulmaCarousel) {
+	// bulmaCarousel instance is available as element.bulmaCarousel
+	element.bulmaCarousel.on('before-show', function(state) {
+		console.log(state);
+	});
+}
+    </script>
+
+
+  </head>
+
+
+
+  <body>
+  <section class="section" style="padding-top: 0px;" >
+    <div class="container">
+    <!--
+      <h1 class="title is-2 is-marginless">Pickup-Shift <i class="fas fa-level-up-alt fa-xs"></i></h1>
+      <h2 class="subtitle is-5 is-marginless" style="padding-bottom: 20px;">Helping the Restaurant Industry </h2>
+    -->
+
+<!-- Start  Carousel -->
+<section class="section is-paddingless ">
+        <div class="container">
+            <!-- Start Carousel -->
+            <div id="carousel-demo" style="padding-bottom: 20px;" class="carousel">
+
+                <div class="item-1">                       
+                        <img src="https://influxdays.com/wp-content/uploads/photo-placeholder.jpg" alt="1">
+                        <h2 class="subtitle is-4 has-text-centered">999 Restaurants Signed Up</h2>
+                </div>
+
+                <div class="item-2">
+                        <img src="https://influxdays.com/wp-content/uploads/photo-placeholder.jpg" alt="2">
+                        <h2 class="subtitle is-4 has-text-centered">888 Servers Signed Up</h2>
+                </div>
+
+                <div class="item-3">
+                        <img src="https://influxdays.com/wp-content/uploads/photo-placeholder.jpg" alt="3">
+                        <h2 class="subtitle is-4 has-text-centered">777 Bartenders Signed Up</h2>
+                </div>
+            </div>
+            <!-- End Carousel -->
+        </div>
+    </section>
+
+    <hr class="is-marginless">
+
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+    <script>
+    bulmaCarousel.attach('#carousel-demo', {
+        slidesToScroll: 1,
+        slidesToShow: 4
+    });
+    </script>
+
+    <h3 class="subtitle is-4 has-text-centered is-marginless" style="padding:15px 0px 6px 0px">Sign Up As A...</h3>
+
+    <a href="workerSignup.html" class="button is-medium is-fullwidth is-link">Worker</a>
+    <h3 class="subtitle is-4 has-text-centered is-marginless">Or</h3>
+    <a href="restaurantSignup.html" class="button is-medium is-fullwidth is-success">Restaurant</a>
+
+    </div><!-- /container -->
+  </section>
+  </body>
+</html>
