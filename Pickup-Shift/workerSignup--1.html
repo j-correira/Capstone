@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pickup-Shift || Worker Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-extensions@4.0.0/dist/css/bulma-extensions.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-steps@2.2.1/dist/css/bulma-steps.min.css">
+    <script> bulmaSteps.attach(); </script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+    <script>
+      import 'bulma-extensions/bulma-steps/dist/css/bulma-steps.min.css';
+      bulmaSteps.attach();
+    </script>
+
+    <script>
+      function toggleClass() {
+          var element = document.getElementsByClassName("availability");
+          element.classList.toggle("is-success");
+      }
+    </script>
+
+  </head>
+
+
+
+<body>
+<section class="section">
+        <div class="container">
+
+            <a href="index.html" class="button is-rounded" style="margin-bottom:20px;"><i class="fas fa-arrow-left"></i> &nbsp;Back</a>     
+            <h1 class="title is-1 has-text-centered">Worker Sign Up</h1>
+            <p class="subtitle is-5 has-text-centered">Create your profile, select your skills and decide when you're available</p>
+            <hr>
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-steps@2.2.1/dist/css/bulma-steps.min.css">
+            
+            <div class="steps is-large" id="stepsDemo">
+              <div class="step-item is-active is-success">
+                <div class="step-marker">1</div>
+                <div class="step-details">
+                  <p class="step-title">Account</p>
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-marker">2</div>
+                <div class="step-details">
+                  <p class="step-title">Skills</p>
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-marker">3</div>
+                <div class="step-details">
+                  <p class="step-title">Availability</p>
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-marker">4</div>
+                <div class="step-details">
+                  <p class="step-title">Submit</p>
+                </div>
+              </div>
+              
+<!-- step #1 -->
+              <div class="steps-content">
+              <hr style="margin-top:0px;">
+                <div class="step-content has-text-centered is-active">
+                    <h1 class="title has-text-centered has-text-grey-light is-marginless"><i class="fas fa-user-circle fa-3x"></i></h1>
+            <p class="has-text-centered">Upload Profile Pic</p>
+            <br>
+            
+            <input class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="First Name">
+            <input class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Last Name">
+            <input pattern="\d*" class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Phone">
+            <input pattern="\d*" class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Zip Code">
+            <div class="field">
+                <div class="control">
+                  <textarea class="textarea is-medium" placeholder="Bio"></textarea>
+                </div>
+              </div>
+            <input type="email" class="input is-medium is-warning" style="margin-bottom:15px;" type="text" placeholder="Email">
+            <input type="password" class="input is-medium is-warning" style="margin-bottom:15px;" type="text" placeholder="Password">
+            <input type="password" class="input is-medium is-warning" style="margin-bottom:15px;" type="text" placeholder="Confirm Password">
+                </div>
+        <!-- /step #1 -->
+
+        <!-- step #2-->
+                <div class="step-content has-text-centered">
+                    <div class="columns is-mobile">
+
+                        <div class="column is-half">
+                            <div class="field">
+                                <input class="is-checkradio is-medium" id="exampleCheckboxLarge1" type="checkbox" name="exampleCheckboxLarge1">
+                                <label for="exampleCheckboxLarge1">Server</label>
+                            </div>
+                        </div>
+                        <div class="column is-half">
+                            <div class="field">
+                                <input class="is-checkradio is-medium" id="exampleCheckboxLarge2" type="checkbox" name="exampleCheckboxLarge2">
+                                <label for="exampleCheckboxLarge2">Bartender</label>
+                              </div>
+                        </div>
+                      </div>
+          
+                      <div class="columns is-mobile">
+                            <div class="column is-half">
+                                <div class="field">
+                                    <input class="is-checkradio is-medium" id="exampleCheckboxLarge3" type="checkbox" name="exampleCheckboxLarge3">
+                                    <label for="exampleCheckboxLarge3">Chef</label>
+                                  </div>
+                            </div>
+          
+                        <div class="column is-half">
+          
+                                <div class="field">
+                                    <input class="is-checkradio is-medium" id="exampleCheckboxLarge4" type="checkbox" name="exampleCheckboxLarge4">
+                                    <label for="exampleCheckboxLarge4">Dishwasher</label>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class="columns is-mobile is-centered" style="
+                        padding-top: 15px;">
+                            <div class="column is-half">                         
+                                <div class="select is-medium is-rounded is-fullwidth">
+                                    <select name="yearsExperience" >
+                                      <option>Years of Experience</option>
+                                      <option>< 1 Year</option>
+                                      <option>1-2 Years</option>
+                                      <option>2-3 Years</option>
+                                      <option>3-4 Years</option>
+                                      <option>5+ Years</option>
+                                    </select>
+                                  </div>
+                                  
+                                  <!-- dropdown menu javascript -->
+                                  <script>
+                                      var dropdown = document.querySelector('.dropdown');
+                                      dropdown.addEventListener('click', function(event) {
+                                      event.stopPropagation();
+                                      dropdown.classList.toggle('is-active');
+                                      });
+                                  </script>
+                           </div><!-- /column -->
+                        </div><!-- /columns is-mobile is-centered -->
+                </div>
+        <!-- /step #2 -->
+
+        <!-- step #3-->
+                <div class="step-content has-text-centered">
+                    <h1 class="title is-6 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Monday</u></h1>
+                    <div class="buttons has-addons is-centered">
+                        <span class="button availability">Breakfast</span>
+                        <span class="button availability">Lunch</span>
+                        <span class="button availability">Dinner</span>
+                      </div>
+        
+                    <h1 class="title is-6 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Tuesday</u></h1>
+                    <div class="buttons has-addons is-centered">
+                        <span class="button availability" >Breakfast</span>
+                        <span class="button availability">Lunch</span>
+                        <span class="button availability">Dinner</span>
+                      </div>
+        
+                    <h1 class="title is-6 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Wednesday</u></h1>
+                      <div class="buttons has-addons is-centered">
+                        <span class="button availability" >Breakfast</span>
+                        <span class="button availability">Lunch</span>
+                        <span class="button availability">Dinner</span>
+                    </div>
+        
+                    <h1 class="title is-6 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Thursday</u></h1>
+                      <div class="buttons has-addons is-centered">
+                        <span class="button availability" >Breakfast</span>
+                        <span class="button availability">Lunch</span>
+                        <span class="button availability">Dinner</span>
+                      </div>
+        
+                    <h1 class="title is-6 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Friday</u></h1>
+                      <div class="buttons has-addons is-centered">
+                        <span class="button availability" >Breakfast</span>
+                        <span class="button availability">Lunch</span>
+                        <span class="button availability">Dinner</span>
+                      </div>
+        
+                    <h1 class="title is-6 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Saturday</u></h1>
+                      <div class="buttons has-addons is-centered">
+                        <span class="button availability" >Breakfast</span>
+                        <span class="button availability">Lunch</span>
+                        <span class="button availability">Dinner</span>
+                      </div>
+        
+                    <h1 class="title is-6 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Sunday</u></h1>
+                      <div class="buttons has-addons is-centered">
+                          <span class="button availability" >Breakfast</span>
+                          <span class="button availability">Lunch</span>
+                          <span class="button availability">Dinner</span>
+                      </div>
+                </div>
+        <!-- /step #3 -->
+
+        <!-- step #4 -->
+                <div class="step-content has-text-centered">
+                    <a class="button is-success is-large is-fullwidth">Create Account</a>
+                </div>
+        <!-- /step #4 -->
+
+
+              </div>
+              <div class="steps-actions">
+                <div class="steps-action">
+                  <a href="#" data-nav="previous" class="button is-light">Previous</a>
+                </div>
+                <div class="steps-action">
+                  <a href="#" data-nav="next" class="button is-light">Next</a>
+                </div>
+              </div>
+            </div>
+            <script type="text/javascript" src="https://wikiki.github.io/node_modules/bulma-extensions/bulma-steps/dist/js/bulma-steps.min.js"></script>
+            <script>bulmaSteps.attach();</script>
+        </div>
+    </section>
+
+
+  </body>
+</html>
