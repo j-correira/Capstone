@@ -11,25 +11,31 @@
     <script> bulmaSteps.attach(); </script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <script>
       import 'bulma-extensions/bulma-steps/dist/css/bulma-steps.min.css';
       bulmaSteps.attach();
     </script>
 
-    <script>
-      function toggleClass() {
-          var element = document.getElementsByClassName("availability");
-          element.classList.toggle("is-success");
-      }
-    </script>
+<script>
+</script>
 
-  </head>
+<style>
+</style>
+
+</head>
 
 
 
 <body>
 <section class="section">
         <div class="container">
+
+
+
+
+
 
             <a href="index.html" class="button is-rounded" style="margin-bottom:20px;"><i class="fas fa-arrow-left"></i> &nbsp;Back</a>     
             <h1 class="title is-1 has-text-centered">Worker Sign Up</h1>
@@ -68,7 +74,7 @@
 <!-- step #1 -->
               <div class="steps-content">
               <hr style="margin-top:0px;">
-                <div class="step-content has-text-centered is-active">
+                <div class="step-content has-text-centered ">
                     <h1 class="title has-text-centered has-text-grey-light is-marginless"><i class="fas fa-user-circle fa-3x"></i></h1>
             <p class="has-text-centered">Upload Profile Pic</p>
             <br>
@@ -77,11 +83,13 @@
             <input class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Last Name">
             <input pattern="\d*" class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Phone">
             <input pattern="\d*" class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Zip Code">
+
             <div class="field">
                 <div class="control">
                   <textarea class="textarea is-medium" placeholder="Bio"></textarea>
-                </div>
+                </div>               
               </div>
+              
             <input type="email" class="input is-medium is-warning" style="margin-bottom:15px;" type="text" placeholder="Email">
             <input type="password" class="input is-medium is-warning" style="margin-bottom:15px;" type="text" placeholder="Password">
             <input type="password" class="input is-medium is-warning" style="margin-bottom:15px;" type="text" placeholder="Confirm Password">
@@ -151,7 +159,11 @@
         <!-- /step #2 -->
 
         <!-- step #3-->
-                <div class="step-content has-text-centered">
+                
+        
+        
+        
+        <div class="step-content has-text-centered is-active">
                     <h1 class="title is-6 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Monday</u></h1>
                     <div class="buttons has-addons is-centered">
                         <span class="button availability">Breakfast</span>
@@ -201,6 +213,7 @@
                           <span class="button availability">Dinner</span>
                       </div>
                 </div>
+                
         <!-- /step #3 -->
 
         <!-- step #4 -->
