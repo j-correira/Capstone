@@ -12,53 +12,34 @@
     <script>
         
     function openTab(evt, tabName) {
-  var i, x, tablinks;
-  x = document.getElementsByClassName("content-tab");
-  for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tab");
-  for (i = 0; i < x.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" is-active", "");
-  }
-  document.getElementById(tabName).style.display = "block";
-  evt.currentTarget.className += " is-active";
-}
+      var i, x, tablinks;
+      x = document.getElementsByClassName("content-tab");
+
+       for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+
+      tablinks = document.getElementsByClassName("tab");
+      for (i = 0; i < x.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" is-active", "");
+      }
+
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " is-active";
+    }
     </script>
 
-
-
-
   </head>
+
+
   <body>
   <section class="section">
     <div class="container">
-
-         
+    
             <a href="index.html" class="button is-rounded" style="margin-bottom:20px;"><i class="fas fa-arrow-left"></i> &nbsp;Back</a>     
-            <h1 class="title is-1 has-text-centered">Worker Search</h1>
+            <h1 class="title is-2 has-text-centered">Worker Search</h1>
             <p class="subtitle is-5 has-text-centered">Find workers with specific skills and availability</p>
             <hr>
-
-    <!--
-            <div class="tabs is-centered is-large is-toggle is-fullwidth">
-                    <ul>
-                      <li class="is-active">
-                        <a>
-                          <span class="icon is-small"><i class="fas fa-search" aria-hidden="true"></i></span>
-                          <span>Search</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a>
-                          <span class="icon is-small"><i class="fas fa-list" aria-hidden="true"></i></span>
-                          <span>Results</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-    -->
-
 
                   <nav class="tabs is-centered is-large is-toggle is-fullwidth">
                         <div class="container">
@@ -84,7 +65,7 @@
                 
                 <div class="container section has-text-centered" style="padding-top:0px;">
                     <div id="Search" class="content-tab" >
-                            <h1 class="title is-4 has-text-centered">I'm looking for a...</h1>
+                            <h1 class="title is-3 has-text-centered">I'm looking for...</h1>
                             <div class="columns is-mobile">
 
                                     <div class="column is-half">
@@ -122,8 +103,8 @@
                                     <div class="columns is-mobile is-centered" style="
                                     padding-top: 15px;">
                                     
-                                        <div class="column is-half">    
-                                            <h1 class="title is-4 has-text-centered">That has...</h1>                     
+                                        <div class="column is-full">    
+                                            <h1 class="title is-3 has-text-centered">That has...</h1>                     
                                                 <div class="select is-medium is-rounded is-fullwidth">
                                                     <select name="yearsExperience" >
                                                     <option>Years of Experience</option>
@@ -149,61 +130,223 @@
                                     <hr>
 
                                     <div class="step-content has-text-centered">
-                                            <h1 class="title is-4 has-text-centered">That is available...</h1>
-                                            <h1 class="title is-6 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Monday</u></h1>
-                                            <div class="buttons has-addons is-centered">
-                                                <span class="button availability">Breakfast</span>
-                                                <span class="button availability">Lunch</span>
-                                                <span class="button availability">Dinner</span>
-                                              </div>
-                                
-                                            <h1 class="title is-6 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Tuesday</u></h1>
-                                            <div class="buttons has-addons is-centered">
-                                                <span class="button availability" >Breakfast</span>
-                                                <span class="button availability">Lunch</span>
-                                                <span class="button availability">Dinner</span>
-                                              </div>
-                                
-                                            <h1 class="title is-6 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Wednesday</u></h1>
-                                              <div class="buttons has-addons is-centered">
-                                                <span class="button availability" >Breakfast</span>
-                                                <span class="button availability">Lunch</span>
-                                                <span class="button availability">Dinner</span>
-                                            </div>
-                                
-                                            <h1 class="title is-6 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Thursday</u></h1>
-                                              <div class="buttons has-addons is-centered">
-                                                <span class="button availability" >Breakfast</span>
-                                                <span class="button availability">Lunch</span>
-                                                <span class="button availability">Dinner</span>
-                                              </div>
-                                
-                                            <h1 class="title is-6 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Friday</u></h1>
-                                              <div class="buttons has-addons is-centered">
-                                                <span class="button availability" >Breakfast</span>
-                                                <span class="button availability">Lunch</span>
-                                                <span class="button availability">Dinner</span>
-                                              </div>
-                                
-                                            <h1 class="title is-6 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Saturday</u></h1>
-                                              <div class="buttons has-addons is-centered">
-                                                <span class="button availability" >Breakfast</span>
-                                                <span class="button availability">Lunch</span>
-                                                <span class="button availability">Dinner</span>
-                                              </div>
-                                
-                                            <h1 class="title is-6 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Sunday</u></h1>
-                                              <div class="buttons has-addons is-centered">
-                                                  <span class="button availability" >Breakfast</span>
-                                                  <span class="button availability">Lunch</span>
-                                                  <span class="button availability">Dinner</span>
-                                              </div>
-                                        </div>
+                                        <h1 class="title is-3 has-text-centered">That is available...</h1>
+
+                                            <!-- monday -->
+            <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Monday</u></h1>
+            <div class="columns is-mobile">
+             
+                <div class="column is-one-third marginBottom30">
+                    <h3 class="subtitle is-5 has-text-centered is-marginless">Breakfast</h3>
+                    <div class="column is-mobile field">              
+                      <input id="M_Breakfast" type="checkbox" name="M_Breakfast" class="switch is-medium is-success">
+                      <label for="M_Breakfast"></label>
+                    </div>
+                </div>
+
+                <div class="column is-one-third marginBottom30">
+                    <h3 class="subtitle is-5 has-text-centered is-marginless">Lunch</h3>
+                    <div class="column is-mobile field">              
+                      <input id="M_Lunch" type="checkbox" name="M_Lunch" class="switch is-medium is-success">
+                      <label for="M_Lunch"></label>
+                    </div>
+                </div>
+
+                <div class="column is-one-third marginBottom30">
+                    <h3 class="subtitle is-5 has-text-centered is-marginless">Dinner</h3>
+                    <div class="column is-mobile field">              
+                      <input id="M_Dinner" type="checkbox" name="M_Dinner" class="switch is-medium is-success">
+                      <label for="M_Dinner"></label>
+                    </div>
+                </div>
+              </div>
+              <!-- /monday -->
+        
+              <!-- tuesday -->
+              <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Tuesday</u></h1>
+              <div class="columns is-mobile">
+               
+                  <div class="column is-one-third marginBottom30">
+                      <h3 class="subtitle is-5 has-text-centered is-marginless">Breakfast</h3>
+                      <div class="column is-mobile field">              
+                        <input id="T_Breakfast" type="checkbox" name="T_Breakfast" class="switch is-medium is-success">
+                        <label for="T_Breakfast"></label>
+                      </div>
+                  </div>
+
+                  <div class="column is-one-third marginBottom30">
+                      <h3 class="subtitle is-5 has-text-centered is-marginless">Lunch</h3>
+                      <div class="column is-mobile field">              
+                        <input id="T_Lunch" type="checkbox" name="T_Lunch" class="switch is-medium is-success">
+                        <label for="T_Lunch"></label>
+                      </div>
+                  </div>
+
+                  <div class="column is-one-third marginBottom30">
+                      <h3 class="subtitle is-5 has-text-centered is-marginless">Dinner</h3>
+                      <div class="column is-mobile field">              
+                        <input id="T_Dinner" type="checkbox" name="T_Dinner" class="switch is-medium is-success">
+                        <label for="T_Dinner"></label>
+                      </div>
+                  </div>
+                </div>
+                <!-- /tuesday -->
+
+                <!-- wednesday -->
+                <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Wednesday</u></h1>
+                  <div class="columns is-mobile">
+                   
+                      <div class="column is-one-third marginBottom30">
+                          <h3 class="subtitle is-5 has-text-centered is-marginless">Breakfast</h3>
+                          <div class="column is-mobile field">              
+                            <input id="W_Breakfast" type="checkbox" name="W_Breakfast" class="switch is-medium is-success">
+                            <label for="W_Breakfast"></label>
+                          </div>
+                      </div>
+
+                      <div class="column is-one-third marginBottom30">
+                          <h3 class="subtitle is-5 has-text-centered is-marginless">Lunch</h3>
+                          <div class="column is-mobile field">              
+                            <input id="W_Lunch" type="checkbox" name="W_Lunch" class="switch is-medium is-success">
+                            <label for="W_Lunch"></label>
+                          </div>
+                      </div>
+
+                      <div class="column is-one-third marginBottom30">
+                          <h3 class="subtitle is-5 has-text-centered is-marginless">Dinner</h3>
+                          <div class="column is-mobile field">              
+                            <input id="W_Dinner" type="checkbox" name="W_Dinner" class="switch is-medium is-success">
+                            <label for="W_Dinner"></label>
+                          </div>
+                      </div>
+                    </div>
+                    <!-- /wednesday -->
+
+                <!-- thursday -->
+                <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Thursday</u></h1>
+                  <div class="columns is-mobile">
+                   
+                      <div class="column is-one-third marginBottom30">
+                          <h3 class="subtitle is-5 has-text-centered is-marginless">Breakfast</h3>
+                          <div class="column is-mobile field">              
+                            <input id="TH_Breakfast" type="checkbox" name="TH_Breakfast" class="switch is-medium is-success">
+                            <label for="TH_Breakfast"></label>
+                          </div>
+                      </div>
+
+                      <div class="column is-one-third marginBottom30">
+                          <h3 class="subtitle is-5 has-text-centered is-marginless">Lunch</h3>
+                          <div class="column is-mobile field">              
+                            <input id="TH_Lunch" type="checkbox" name="TH_Lunch" class="switch is-medium is-success">
+                            <label for="TH_Lunch"></label>
+                          </div>
+                      </div>
+
+                      <div class="column is-one-third marginBottom30">
+                          <h3 class="subtitle is-5 has-text-centered is-marginless">Dinner</h3>
+                          <div class="column is-mobile field">              
+                            <input id="TH_Dinner" type="checkbox" name="TH_Dinner" class="switch is-medium is-success">
+                            <label for="TH_Dinner"></label>
+                          </div>
+                      </div>
+                    </div>
+                    <!-- /thursday -->
+
+
+                <!-- friday -->
+                <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Friday</u></h1>
+                  <div class="columns is-mobile">
+                   
+                      <div class="column is-one-third marginBottom30">
+                          <h3 class="subtitle is-5 has-text-centered is-marginless">Breakfast</h3>
+                          <div class="column is-mobile field">              
+                            <input id="F_Breakfast" type="checkbox" name="F_Breakfast" class="switch is-medium is-success">
+                            <label for="F_Breakfast"></label>
+                          </div>
+                      </div>
+
+                      <div class="column is-one-third marginBottom30">
+                          <h3 class="subtitle is-5 has-text-centered is-marginless">Lunch</h3>
+                          <div class="column is-mobile field">              
+                            <input id="F_Lunch" type="checkbox" name="F_Lunch" class="switch is-medium is-success">
+                            <label for="F_Lunch"></label>
+                          </div>
+                      </div>
+
+                      <div class="column is-one-third marginBottom30">
+                          <h3 class="subtitle is-5 has-text-centered is-marginless">Dinner</h3>
+                          <div class="column is-mobile field">              
+                            <input id="F_Dinner" type="checkbox" name="F_Dinner" class="switch is-medium is-success">
+                            <label for="F_Dinner"></label>
+                          </div>
+                      </div>
+                    </div>
+                    <!-- /friday -->
+        
+                    <!-- saturday -->
+                    <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Saturday</u></h1>
+                    <div class="columns is-mobile">
+                     
+                        <div class="column is-one-third marginBottom30">
+                            <h3 class="subtitle is-5 has-text-centered is-marginless">Breakfast</h3>
+                            <div class="column is-mobile field">              
+                              <input id="SA_Breakfast" type="checkbox" name="SA_Breakfast" class="switch is-medium is-success">
+                              <label for="SA_Breakfast"></label>
+                            </div>
+                        </div>
+  
+                        <div class="column is-one-third marginBottom30">
+                            <h3 class="subtitle is-5 has-text-centered is-marginless">Lunch</h3>
+                            <div class="column is-mobile field">              
+                              <input id="SA_Lunch" type="checkbox" name="SA_Lunch" class="switch is-medium is-success">
+                              <label for="SA_Lunch"></label>
+                            </div>
+                        </div>
+  
+                        <div class="column is-one-third marginBottom30">
+                            <h3 class="subtitle is-5 has-text-centered is-marginless">Dinner</h3>
+                            <div class="column is-mobile field">              
+                              <input id="SA_Dinner" type="checkbox" name="SA_Dinner" class="switch is-medium is-success">
+                              <label for="SA_Dinner"></label>
+                            </div>
+                        </div>
+                      </div>
+                      <!-- /saturday -->
+        
+                      <!-- sunday -->
+                      <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Sunday</u></h1>
+                      <div class="columns is-mobile">
+                       
+                          <div class="column is-one-third marginBottom30">
+                              <h3 class="subtitle is-5 has-text-centered is-marginless">Breakfast</h3>
+                              <div class="column is-mobile field">              
+                                <input id="SU_Breakfast" type="checkbox" name="SU_Breakfast" class="switch is-medium is-success">
+                                <label for="SU_Breakfast"></label>
+                              </div>
+                          </div>
+    
+                          <div class="column is-one-third marginBottom30">
+                              <h3 class="subtitle is-5 has-text-centered is-marginless">Lunch</h3>
+                              <div class="column is-mobile field">              
+                                <input id="SU_Lunch" type="checkbox" name="SU_Lunch" class="switch is-medium is-success">
+                                <label for="SU_Lunch"></label>
+                              </div>
+                          </div>
+    
+                          <div class="column is-one-third marginBottom30">
+                              <h3 class="subtitle is-5 has-text-centered is-marginless">Dinner</h3>
+                              <div class="column is-mobile field">              
+                                <input id="SU_Dinner" type="checkbox" name="SU_Dinner" class="switch is-medium is-success">
+                                <label for="SU_Dinner"></label>
+                              </div>
+                          </div>
+                        </div>
+                        <!-- /sunday -->
 
                                         <hr>
 
                                         <div class="field">
-                                                <button class="button is-success is-fullwidth" onclick="openTab(event,'Results')">
+                                                <button class="button is-success is-large is-fullwidth" onclick="openTab(event,'Results')">
                                                     Search
                                                 </button>
                                             </div>
@@ -212,7 +355,7 @@
 
 
                     <div id="Results" class="content-tab" style="display:none">
-                            <h1 class="title is-4 has-text-centered">Search results will go here!</h1>
+                            <h1 class="title is-4 has-text-centered"><u>Search results will go here!</u></h1>
                     </div>
                 </div>
 
