@@ -17,10 +17,22 @@
       bulmaSteps.attach();
     </script>
 
+    <!-- populate year drop down-->
+    <script>
+
+    </script>
+
+
   <style>
     .marginBottom30{
       margin-bottom:30px;
     }
+
+    .marginBottom20{
+      margin-bottom:20px;
+    }
+
+    
   </style>
 
   </head>
@@ -78,6 +90,11 @@
               <div class="steps-content">
               <hr style="margin-top:0px;">
                 <div class="step-content has-text-centered is-active">
+
+                    <div class="columns is mobile is-fullwidth">
+                        <h1 class="title is-4 has-text-centered marginBottom20">Profile Info</h1>
+                    </div>
+
                     <a href="#"><h1 class="title has-text-centered has-text-grey-light is-marginless"><i class="fas fa-user-circle fa-3x"></i></h1>
             <p class="has-text-centered">Upload Profile Pic</p></a>
             <br>
@@ -92,7 +109,7 @@
                   <textarea class="textarea is-medium" placeholder="Bio"></textarea>
                 </div>               
               </div>
-              
+               
             <input type="email" class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Email">
             <input type="password" class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Password">
             <input type="password" class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Confirm Password">
@@ -104,9 +121,18 @@
         <!-- ================================= -->
         <!-- step #2-->
                 <div class="step-content has-text-centered">
+
+                  <div class="columns is mobile is-fullwidth">
+                      <h1 class="title is-4 has-text-centered marginBottom20">I'm a...</h1>
+                  </div>
+
+
                     <div class="columns is-mobile">
 
+                      
+                      
                         <div class="column is-half">
+                        
                             <div class="field">
                                 <input class="is-checkradio is-medium" id="exampleCheckboxLarge1" type="checkbox" name="exampleCheckboxLarge1">
                                 <label for="exampleCheckboxLarge1">Server</label>
@@ -137,30 +163,98 @@
                             </div>
                         </div>
 
+                        <!-- NEW years experience -->
                         <div class="columns is-mobile is-centered" style="
                         padding-top: 15px;">
                             <div class="column is-full">                         
-                                <div class="select is-rounded is-medium is-fullwidth">
-                                    <select name="yearsExperience" >
-                                      <option>Years of Experience</option>
-                                      <option>< 1 Year</option>
-                                      <option>1-2 Years</option>
-                                      <option>2-3 Years</option>
-                                      <option>3-4 Years</option>
-                                      <option>5+ Years</option>
-                                    </select>
-                                  </div>
-                                  
-                                  <!-- dropdown menu javascript -->
-                                  <script>
-                                      var dropdown = document.querySelector('.dropdown');
-                                      dropdown.addEventListener('click', function(event) {
-                                      event.stopPropagation();
-                                      dropdown.classList.toggle('is-active');
-                                      });
-                                  </script>
+                              <h1 class="title is-4 has-text-centered">I've been working since...</h1>
+
+
+
+                              <div class="select is-medium is-half marginBottom20" >
+                                  <select name="yearsExperience">
+                                    <option selected disabled>Month</option>
+                                    <option>January</option>
+                                    <option>February</option>
+                                    <option>March</option>
+                                    <option>April</option>
+                                    <option>May</option>
+                                    <option>June</option>
+                                    <option>July</option>
+                                    <option>August</option>
+                                    <option>September</option>
+                                    <option>October</option>
+                                    <option>November</option>
+                                    <option>December</option>
+                                  </select>
+                                </div>
+
+                                <input class="input marginBottom20" style="width:14%; height:46px;" min="1" max="31" type="number" maxlength="2" pattern="[0-9]*" placeholder="Day">
+
+
+                              <!--
+                              <div class="is-rounded is-medium is-fullwidth marginBottom20" >
+                               <select name="days" >
+                                  <option selected disabled>Day</option>
+                                </select>
+                              
+                              </div>
+                              -->
+
+
+                              <div class="select is-medium is-half marginBottom20" >
+                                <select name="years" id="yearsDD">
+                                    <option selected disabled>Year</option>
+                                </select>
+                              </div>
+                             
+                            <!-- dropdown menu javascript -->
+                            <script>
+                            //populate years dropdown
+                                var sel = document.querySelector("select[name='years']");
+                                //console.log(sel);
+                                var date = new Date();
+                                var year = date.getFullYear();
+                                console.log(year);
+                                var str = "";
+                                for (let i = 0; i < 35; i++)
+                                {
+                                  str += `<option>${year - i}</option>`;
+                                }
+                                
+                                //append to years dropdown menu
+                                sel.innerHTML += str;
+
+
+                            //populate days dropdown
+                            /*
+                                var sel2 = document.querySelector("select[name='days']");
+                                //console.log(sel2);
+
+                                var str2 = "";
+                                for (let i = 1; i < 32; i++)
+                                {
+                                  str2 += `<option>${i}</option>`;
+                                }
+
+                                //append to days dropdown menu
+                                sel2.innerHTML += str2;
+
+
+
+                              //bulma dropdown script
+                                var dropdown = document.querySelector('.dropdown');
+                                dropdown.addEventListener('click', function (event) {
+                                event.stopPropagation();
+                                dropdown.classList.toggle('is-active');
+                                });
+                            */
+                            </script>
+
+
                            </div><!-- /column -->
-                        </div><!-- /columns is-mobile is-centered -->
+                        </div><!-- /NEW years experience -->
+
                 </div>
         <!-- /step #2 -->
 
@@ -172,6 +266,10 @@
         <!-- ========= Availability Step =========== -->
         <!-- ======================================= -->
         <div class="step-content has-text-centered">
+
+            <div class="columns is mobile is-fullwidth">
+                <h1 class="title is-4 has-text-centered marginBottom20">I'm available...</h1>
+            </div>
 
             <!-- monday -->
             <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Monday</u></h1>
