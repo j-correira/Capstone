@@ -11,16 +11,28 @@
     <script> bulmaSteps.attach(); </script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
-    <!-- CDN for steps-->
+    <!-- calendar script -->
     <script>
-      import 'bulma-extensions/bulma-steps/dist/css/bulma-steps.min.css';
-      bulmaSteps.attach();
-    </script>
+        // Loop on each calendar initialized
+    for(var i = 0; i < calendars.length; i++) {
+      // Add listener to date:selected event
+      calendars[i].on('select', date => {
+        console.log(date);
+      });
+    }
+    
+    // To access to bulmaCalendar instance of an element
+    var element = document.querySelector('#my-element');
+    if (element) {
+      // bulmaCalendar instance is available as element.bulmaCalendar
+      element.bulmaCalendar.on('select', function(datepicker) {
+        console.log(datepicker.data.value());
+      });
+    }
+        </script>
 
-    <!-- populate year drop down-->
-    <script>
-
-    </script>
+    <!-- calendar CDN ???-->
+    <link href="bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet">
 
 
   <style>
@@ -91,9 +103,8 @@
               <hr style="margin-top:0px;">
                 <div class="step-content has-text-centered is-active">
 
-                    <div class="columns is mobile is-fullwidth">
-                        <h1 class="title is-4 has-text-centered marginBottom20">Profile Info</h1>
-                    </div>
+                    <h1 class="title is-4 has-text-centered marginBottom20">Profile Info</h1>
+
 
                     <a href="#"><h1 class="title has-text-centered has-text-grey-light is-marginless"><i class="fas fa-user-circle fa-3x"></i></h1>
             <p class="has-text-centered">Upload Profile Pic</p></a>
@@ -122,14 +133,9 @@
         <!-- step #2-->
                 <div class="step-content has-text-centered">
 
-                  <div class="columns is mobile is-fullwidth">
                       <h1 class="title is-4 has-text-centered marginBottom20">I'm a...</h1>
-                  </div>
 
-
-                    <div class="columns is-mobile">
-
-                      
+                    <div class="columns is-mobile">               
                       
                         <div class="column is-half">
                         
@@ -267,12 +273,34 @@
         <!-- ======================================= -->
         <div class="step-content has-text-centered">
 
-            <div class="columns is mobile is-fullwidth">
-                <h1 class="title is-4 has-text-centered marginBottom20">I'm available...</h1>
+            <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;">I'm Available...</h1>
+
+            <div class="columns is-mobile">
+                <!-- <h1 class="title is-4 has-text-centered marginBottom20">I'm available...</h1> -->
+
+
+                <div class="column is-full marginBottom30">
+                    <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Until</u></h1>
+
+                  <input type="date" displayMode="inline">
+
+                </div>
+                
+
+
+                
+
+
+
+
+
+
             </div>
+
 
             <!-- monday -->
             <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Monday</u></h1>
+            
             <div class="columns is-mobile">
              
                 <div class="column is-one-third marginBottom30">
@@ -493,6 +521,9 @@
         <!-- ================================= -->
         <!-- step #4 -->
                 <div class="step-content has-text-centered">
+
+                    <h1 class="title is-3 has-text-centered marginBottom20">Submit</h1>
+
                     <a href="success.html" class="button is-success is-large is-fullwidth">Create Account</a>
                 </div>
 
@@ -511,8 +542,14 @@
                 </div>
               </div>
             </div>
+
+            <!-- attach Steps component-->
             <script type="text/javascript" src="https://wikiki.github.io/node_modules/bulma-extensions/bulma-steps/dist/js/bulma-steps.min.js"></script>
             <script>bulmaSteps.attach();</script>
+
+            <!-- attach calendar component-->
+            <script src="bulma-calendar/dist/js/bulma-calendar.min.js"></script>
+            <script>bulmaCalendar.attach();</script>
         </div>
     </section>
 
