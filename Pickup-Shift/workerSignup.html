@@ -4,19 +4,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pickup-Shift || Worker Sign Up</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-extensions@4.0.0/dist/css/bulma-extensions.min.css">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-steps@2.2.1/dist/css/bulma-steps.min.css">
-    <script> bulmaSteps.attach(); </script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+
+    <!-- this causes calendat to only display in mobile mode -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-extensions@4.0.0/dist/css/bulma-extensions.min.css">
+    
+
+    <!-- calendar CDN ???-->
+    <link href="bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet">
+
+
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+    
 
     <!-- calendar script -->
     <script>
         // Loop on each calendar initialized
-    for(var i = 0; i < calendars.length; i++) {
-      // Add listener to date:selected event
-      calendars[i].on('select', date => {
+        for(var i = 0; i < calendars.length; i++) {
+        // Add listener to date:selected event
+        calendars[i].on('select', date => {
         console.log(date);
       });
     }
@@ -31,8 +41,7 @@
     }
         </script>
 
-    <!-- calendar CDN ???-->
-    <link href="bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet">
+
 
 
   <style>
@@ -44,7 +53,8 @@
       margin-bottom:20px;
     }
 
-    
+ 
+
   </style>
 
   </head>
@@ -55,14 +65,13 @@
 <section class="section">
         <div class="container">
 
-            <!-- <a href="index.html" class="button is-rounded is-medium" style="margin-bottom:20px;"><i class="fas fa-arrow-left"></i> &nbsp;Back</a> -->
+            <!-- start of form -->
+            <form>
+
 
             <h1 class="title is-2 has-text-centered">Worker Sign Up</h1>
             <p class="subtitle is-5 has-text-centered">Create your profile, select your skills and decide when you're available</p>
             <hr>
-
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-steps@2.2.1/dist/css/bulma-steps.min.css">
             
             <div class="steps is-small" id="stepsDemo">
               <div class="step-item is-active is-success">
@@ -275,28 +284,19 @@
 
             <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;">I'm Available...</h1>
 
-            <div class="columns is-mobile">
-                <!-- <h1 class="title is-4 has-text-centered marginBottom20">I'm available...</h1> -->
 
+            <div class="columns is-mobile marginBottom20">
 
-                <div class="column is-full marginBottom30">
-                    <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Until</u></h1>
-
-                  <input type="date" displayMode="inline">
-
+                <div class="column is-half">
+                    <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;">Starting</h1>
+                  <input type="date">
                 </div>
-                
-
-
-                
-
-
-
-
-
-
-            </div>
-
+        
+                <div class="column is-half">
+                    <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;">Ending</h1>
+                    <input type="date">
+                  </div>       
+              </div>
 
             <!-- monday -->
             <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Monday</u></h1>
@@ -527,7 +527,10 @@
                     <a href="success.html" class="button is-success is-large is-fullwidth">Create Account</a>
                 </div>
 
-              <!-- </form> -->
+
+        <!-- ========= /form ========= -->
+        </form>
+
 
         <!-- /step #4 -->
 
@@ -547,9 +550,10 @@
             <script type="text/javascript" src="https://wikiki.github.io/node_modules/bulma-extensions/bulma-steps/dist/js/bulma-steps.min.js"></script>
             <script>bulmaSteps.attach();</script>
 
-            <!-- attach calendar component-->
+            <!-- attach calendar component
             <script src="bulma-calendar/dist/js/bulma-calendar.min.js"></script>
             <script>bulmaCalendar.attach();</script>
+          -->
         </div>
     </section>
 

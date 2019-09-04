@@ -1,0 +1,152 @@
+
+INSERT INTO restaurants (email, passw, restaurant_name, website, phone, zipcode, bio, logo)
+
+VALUES ('test@test.com', 'testPassword', 'test name', 'test.com', '555555555', '55555', 'test bio with a bunch of words', 'linkToTestLogo');
+
+
+INSERT INTO skills
+
+VALUES (1, 'Server')
+
+
+INSERT INTO availability
+
+VALUES (1, 'Tuesday', 'Breakfast', '2019-9-4', '2019-12-23')
+
+
+INSERT INTO workers (email, passw, fName, lName, phone, zipcode, bio, workingSince)
+
+VALUES ('testEmail', 'testPass', 'fName', 'lName', '1111111111', '11111', 'bioooooo', '111-11-11')
+
+
+SELECT * FROM availability WHERE day_name = 'Monday'
+
+
+SELECT * FROM availability WHERE day_part = 'Lunch'
+
+
+SELECT workers.id, workers.fName, workers.lName, skills.skill_description, availability.day_name, availability.day_part, availability.start_date, availability.end_date
+
+
+FROM ((availability
+INNER JOIN workers ON availability.worker_id = workers.id)
+
+INNER JOIN skills ON availability.worker_id = skills.worker_id)
+
+
+WHERE day_name = 'Monday' AND skill_description = 'Server' AND day_part = 'Lunch'
+
+
+
+
+
+
+INSERT INTO workers (email, passw, fName, lName, phone, zipcode, bio, workingSince)
+
+VALUES ('dude', 'dude', 'dude', 'dude', '1111111111', '11111', 'bioooooo', '111-11-11');
+
+
+
+INSERT INTO skills
+VALUES (@@IDENTITY, 'Dishwasher');
+
+
+
+INSERT INTO skills
+
+VALUES (@@IDENTITY, 'Server');
+
+
+
+INSERT INTO availability
+
+VALUES (@@IDENTITY, 'Monday', 'Lunch', '2019-9-10', '2019-12-23');
+
+
+
+INSERT INTO availability
+
+VALUES (@@IDENTITY, 'Monday', 'Dinner', '2019-9-10', '2019-12-23');
+
+
+INSERT INTO availability
+
+
+VALUES (@@IDENTITY, 'Tuesday', 'Lunch', '2019-9-10', '2019-12-23');
+
+
+INSERT INTO availability
+
+
+VALUES (@@IDENTITY, 'Wednesday', 'Lunch', '2019-9-10', '2019-12-23');
+
+
+INSERT INTO availability
+
+
+VALUES (@@IDENTITY, 'Wednesday', 'Dinner', '2019-9-10', '2019-12-23');
+
+
+INSERT INTO availability
+
+VALUES (@@IDENTITY, 'Thursday', 'Breakfast', '2019-9-10', '2019-12-23');
+
+
+
+INSERT INTO availability
+
+VALUES (@@IDENTITY, 'Thursday', 'Lunch', '2019-9-10', '2019-12-23');
+
+
+
+INSERT INTO availability
+
+VALUES (@@IDENTITY, 'Thursday', 'Dinner', '2019-9-10', '2019-12-23');
+
+
+
+INSERT INTO availability
+
+VALUES (@@IDENTITY, 'Friday', 'Breakfast', '2019-9-10', '2019-12-23');
+
+
+
+INSERT INTO availability
+
+VALUES (@@IDENTITY, 'Friday', 'Lunch', '2019-9-10', '2019-12-23');
+
+
+
+INSERT INTO availability
+
+VALUES (@@IDENTITY, 'Saturday', 'Breakfast', '2019-9-10', '2019-12-23');
+
+
+
+INSERT INTO availability
+
+VALUES (@@IDENTITY, 'Saturday', 'Lunch', '2019-9-10', '2019-12-23');
+
+
+
+INSERT INTO availability
+
+VALUES (@@IDENTITY, 'Saturday', 'Dinner', '2019-9-10', '2019-12-23');
+
+
+
+INSERT INTO availability
+
+VALUES (@@IDENTITY, 'Sunday', 'Breakfast', '2019-9-10', '2019-12-23');
+
+
+
+INSERT INTO availability
+
+VALUES (@@IDENTITY, 'Sunday', 'Lunch', '2019-9-10', '2019-12-23');
+
+
+
+INSERT INTO availability
+
+VALUES (@@IDENTITY, 'Sunday', 'Dinner', '2019-9-10', '2019-12-23');

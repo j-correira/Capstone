@@ -4,7 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Test Calendar</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+
+
+
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
     <link href="bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet">
@@ -34,11 +38,71 @@
   <body>
   <section class="section">
     <div class="container">
-        <input type="date">
+
+
+        <ul class="steps has-content-above">
+            <li class="steps-segment">
+              <span class="steps-marker"></span>
+              <div class="steps-content is-divider-content">
+                  <div class="columns is-mobile">
+
+                      <div class="column is-half">
+                        <input type="date">
+                      </div>
+              
+                      <div class="column is-half">
+                          <input type="date">
+                        </div>
+                    </div>
+
+              </div>
+            </li>
+            <li class="steps-segment">
+              <span class="steps-marker"></span>
+              <div class="steps-content is-divider-content">
+                <p class="is-size-4">Step 2</p>
+              </div>
+            </li>
+            <li class="steps-segment is-active">
+              <span class="steps-marker"></span>
+              <div class="steps-content is-divider-content">
+                <p class="is-size-4">Step 3</p>
+              </div>
+            </li>
+            <li class="steps-segment">
+              <span class="steps-marker"></span>
+              <div class="steps-content is-divider-content">
+                <p class="is-size-4">Step 4</p>
+              </div>
+            </li>
+            <li class="steps-segment">
+              <span class="steps-marker"></span>
+              <div class="steps-content is-divider-content">
+                <p class="is-size-4">Step 5</p>
+              </div>
+            </li>
+            <li class="steps-segment">
+              <span class="steps-marker"></span>
+            </li>
+          </ul>
+
+
+
+
+
+
+
+
+
+
     </div>
 
     <script src="bulma-calendar/dist/js/bulma-calendar.min.js"></script>
     <script>bulmaCalendar.attach();</script>
+
+                <!-- attach Steps component-->
+                <script type="text/javascript" src="https://wikiki.github.io/node_modules/bulma-extensions/bulma-steps/dist/js/bulma-steps.min.js"></script>
+                <script>bulmaSteps.attach();</script>
 
   </section>
   </body>
