@@ -6,42 +6,36 @@
     <title>Pickup-Shift || Worker Sign Up</title>
 
 
-
+    <!-- CDNs-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-
-    <!-- this causes calendat to only display in mobile mode -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-extensions@4.0.0/dist/css/bulma-extensions.min.css">
-    
-
-    <!-- calendar CDN ???-->
-    <link href="bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet">
-
-
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
     
 
-    <!-- calendar script -->
-    <script>
-        // Loop on each calendar initialized
-        for(var i = 0; i < calendars.length; i++) {
-        // Add listener to date:selected event
-        calendars[i].on('select', date => {
-        console.log(date);
-      });
-    }
-    
-    // To access to bulmaCalendar instance of an element
-    var element = document.querySelector('#my-element');
-    if (element) {
-      // bulmaCalendar instance is available as element.bulmaCalendar
-      element.bulmaCalendar.on('select', function(datepicker) {
-        console.log(datepicker.data.value());
-      });
-    }
-        </script>
+<script>
+//set start date and end date to todays date
 
+  window.addEventListener('load', ()=>{    //set date picker to today
+  var startDate = document.querySelectorAll('input[type="date"]');
 
+  var todayDate = new Date();
+  var year = todayDate.getFullYear();
+
+//string literal
+  var month = (todayDate.getMonth() < 10 ) ? `0${todayDate.getMonth()+1}`:`${todayDate.getMonth()+1}`;
+  var day = (todayDate.getDate() < 10 ) ? `0${todayDate.getDate()}`:`${todayDate.getDate()}`;
+
+  var todayString = `${year}-${month}-${day}`;
+
+  for (let i = 0; i < startDate.length; i++)
+  {
+    startDate[i].value = todayString;
+    startDate[i].min = todayString;
+  }
+
+  })
+</script>
 
 
   <style>
@@ -53,8 +47,54 @@
       margin-bottom:20px;
     }
 
- 
+    .height100{
+      height: 100px;
+    }
 
+
+/* ========================= */
+/* ==== calendar styles ==== */
+/* ========================= */
+
+ /* Removes the clear button from date inputs */
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+/* Removes the spin button */
+input[type="date"]::-webkit-inner-spin-button { 
+    display: none;
+}
+
+/* Always display the drop down caret */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: #2c3e50;
+}
+
+/* A few custom styles for date inputs */
+input[type="date"] {
+
+    height: 50px;
+    width: 150px;
+
+    appearance: none;
+    -webkit-appearance: none;
+    color: #95a5a6;
+    font-family: "Helvetica", arial, sans-serif;
+    font-size: 18px;
+    border:1px solid #ecf0f1;
+    background:#ecf0f1;
+    padding:5px;
+    display: inline-block !important;
+    visibility: visible !important;
+}
+
+input[type="date"], focus {
+    color: #95a5a6;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
   </style>
 
   </head>
@@ -65,8 +105,10 @@
 <section class="section">
         <div class="container">
 
-            <!-- start of form -->
-            <form>
+            <!-- ============================= -->
+            <!-- ======= start of form ======= -->
+            <!-- ============================= -->
+            <form  name="workerSignup" novalidate>
 
 
             <h1 class="title is-2 has-text-centered">Worker Sign Up</h1>
@@ -105,9 +147,6 @@
         <!-- ================================== -->      
         <!-- step #1 -->
 
-        <!-- <form action=""> -->
-
-
               <div class="steps-content">
               <hr style="margin-top:0px;">
                 <div class="step-content has-text-centered is-active">
@@ -115,14 +154,14 @@
                     <h1 class="title is-4 has-text-centered marginBottom20">Profile Info</h1>
 
 
-                    <a href="#"><h1 class="title has-text-centered has-text-grey-light is-marginless"><i class="fas fa-user-circle fa-3x"></i></h1>
+            <a href="#"><h1 class="title has-text-centered has-text-grey-light is-marginless"><i class="fas fa-user-circle fa-3x"></i></h1>
             <p class="has-text-centered">Upload Profile Pic</p></a>
             <br>
             
-            <input class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="First Name" required>
-            <input class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Last Name" required>
-            <input pattern="\d*" class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Phone" required>
-            <input pattern="\d*" class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Zip Code" required>
+            <input class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="First Name" name="fName">
+            <input class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Last Name" name="lName">
+            <input pattern="\d*" class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Phone" name="phone">
+            <input pattern="\d*" class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Zip Code" name="zip">
 
             <div class="field">
                 <div class="control">
@@ -133,7 +172,8 @@
             <input type="email" class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Email">
             <input type="password" class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Password">
             <input type="password" class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Confirm Password">
-                </div>
+
+          </div>
         <!-- /step #1 -->
 
         <!-- ================================= -->
@@ -142,47 +182,83 @@
         <!-- step #2-->
                 <div class="step-content has-text-centered">
 
-                      <h1 class="title is-4 has-text-centered marginBottom20">I'm a...</h1>
+                      <h1 class="title is-4 has-text-centered marginBottom20">Skills</h1>
 
                     <div class="columns is-mobile">               
                       
-                        <div class="column is-half">
-                        
+                        <div class="column is-half">                       
                             <div class="field">
-                                <input class="is-checkradio is-medium" id="exampleCheckboxLarge1" type="checkbox" name="exampleCheckboxLarge1">
-                                <label for="exampleCheckboxLarge1">Server</label>
+                                <input class="is-checkradio is-medium" id="server_CB" type="checkbox" name="server_CB">
+                                <label for="server_CB">Server</label>
                             </div>
                         </div>
+                        
                         <div class="column is-half">
                             <div class="field">
-                                <input class="is-checkradio is-medium" id="exampleCheckboxLarge2" type="checkbox" name="exampleCheckboxLarge2">
-                                <label for="exampleCheckboxLarge2">Bartender</label>
-                              </div>
+                                <input class="is-checkradio is-medium" id="bartender_CB" type="checkbox" name="bartender_CB">
+                                <label for="bartender_CB">Bartender</label>
+                              </div>      
                         </div>
                       </div>
-          
+
+
                       <div class="columns is-mobile">
+                          <div class="column is-half">
+                              <div class="field">
+                                  <input class="is-checkradio is-medium" id="chef_CB" type="checkbox" name="chef_CB">
+                                  <label for="chef_CB">Chef</label>
+                                </div>
+                          </div>
+        
+                      <div class="column is-half">         
+                              <div class="field">
+                                  <input class="is-checkradio is-medium" id="prepCook_CB" type="checkbox" name="prepCook_CB">
+                                  <label for="prepCook_CB">Prep Cook</label>
+                                </div>
+                          </div>
+                      </div>
+          
+
+
+                        <div class="columns is-mobile">
                             <div class="column is-half">
                                 <div class="field">
-                                    <input class="is-checkradio is-medium" id="exampleCheckboxLarge3" type="checkbox" name="exampleCheckboxLarge3">
-                                    <label for="exampleCheckboxLarge3">Chef</label>
+                                    <input class="is-checkradio is-medium" id="expo_CB" type="checkbox" name="expo_CB">
+                                    <label for="expo_CB">Expo</label>
                                   </div>
                             </div>
           
-                        <div class="column is-half">
-          
+                        <div class="column is-half">         
                                 <div class="field">
-                                    <input class="is-checkradio is-medium" id="exampleCheckboxLarge4" type="checkbox" name="exampleCheckboxLarge4">
-                                    <label for="exampleCheckboxLarge4">Dishwasher</label>
+                                    <input class="is-checkradio is-medium" id="barback_CB" type="checkbox" name="barback_CB">
+                                    <label for="barback_CB">Barback</label>
                                   </div>
                             </div>
+                        </div>
+
+
+                        <div class="columns is-mobile">
+                            <div class="column is-half">         
+                                <div class="field">
+                                    <input class="is-checkradio is-medium" id="dishwasher_CB" type="checkbox" name="dishwasher_CB">
+                                    <label for="dishwasher_CB">Dishwasher</label>
+                                  </div>
+                            </div>
+
+                            <div class="column is-half">        
+                                <div class="field">
+                                    <input class="is-checkradio is-medium" id="busser_CB" type="checkbox" name="busser_CB">
+                                    <label for="busser_CB">Busser</label>
+                                  </div>
+                            </div>
+                        
                         </div>
 
                         <!-- NEW years experience -->
                         <div class="columns is-mobile is-centered" style="
                         padding-top: 15px;">
                             <div class="column is-full">                         
-                              <h1 class="title is-4 has-text-centered">I've been working since...</h1>
+                              <h1 class="title is-4 has-text-centered">I've been working since</h1>
 
 
 
@@ -230,7 +306,7 @@
                                 //console.log(sel);
                                 var date = new Date();
                                 var year = date.getFullYear();
-                                console.log(year);
+                                //console.log(year);
                                 var str = "";
                                 for (let i = 0; i < 35; i++)
                                 {
@@ -239,31 +315,6 @@
                                 
                                 //append to years dropdown menu
                                 sel.innerHTML += str;
-
-
-                            //populate days dropdown
-                            /*
-                                var sel2 = document.querySelector("select[name='days']");
-                                //console.log(sel2);
-
-                                var str2 = "";
-                                for (let i = 1; i < 32; i++)
-                                {
-                                  str2 += `<option>${i}</option>`;
-                                }
-
-                                //append to days dropdown menu
-                                sel2.innerHTML += str2;
-
-
-
-                              //bulma dropdown script
-                                var dropdown = document.querySelector('.dropdown');
-                                dropdown.addEventListener('click', function (event) {
-                                event.stopPropagation();
-                                dropdown.classList.toggle('is-active');
-                                });
-                            */
                             </script>
 
 
@@ -282,24 +333,25 @@
         <!-- ======================================= -->
         <div class="step-content has-text-centered">
 
-            <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;">I'm Available...</h1>
-
-
             <div class="columns is-mobile marginBottom20">
 
                 <div class="column is-half">
-                    <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;">Starting</h1>
-                  <input type="date">
+                  <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;">Start Date</h1>
+
+                  <!-- start date input -->
+                  <input type="date" id="startDate">
                 </div>
         
                 <div class="column is-half">
-                    <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;">Ending</h1>
-                    <input type="date">
+                    <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;">End Date</h1>
+
+                    <!-- end date input -->
+                    <input type="date" class="marginBottom30">
                   </div>       
               </div>
 
             <!-- monday -->
-            <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Monday</u></h1>
+            <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;">Monday</h1>
             
             <div class="columns is-mobile">
              
@@ -330,7 +382,7 @@
               <!-- /monday -->
         
               <!-- tuesday -->
-              <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Tuesday</u></h1>
+              <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;">Tuesday</h1>
               <div class="columns is-mobile">
                
                   <div class="column is-one-third marginBottom30">
@@ -360,7 +412,7 @@
                 <!-- /tuesday -->
 
                 <!-- wednesday -->
-                <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Wednesday</u></h1>
+                <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;">Wednesday</h1>
                   <div class="columns is-mobile">
                    
                       <div class="column is-one-third marginBottom30">
@@ -390,7 +442,7 @@
                     <!-- /wednesday -->
 
                 <!-- thursday -->
-                <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Thursday</u></h1>
+                <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;">Thursday</h1>
                   <div class="columns is-mobile">
                    
                       <div class="column is-one-third marginBottom30">
@@ -421,7 +473,7 @@
 
 
                 <!-- friday -->
-                <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Friday</u></h1>
+                <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;">Friday</h1>
                   <div class="columns is-mobile">
                    
                       <div class="column is-one-third marginBottom30">
@@ -451,7 +503,7 @@
                     <!-- /friday -->
         
                     <!-- saturday -->
-                    <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Saturday</u></h1>
+                    <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;">Saturday</h1>
                     <div class="columns is-mobile">
                      
                         <div class="column is-one-third marginBottom30">
@@ -481,7 +533,7 @@
                       <!-- /saturday -->
         
                       <!-- sunday -->
-                      <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;"><u>Sunday</u></h1>
+                      <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;">Sunday</h1>
                       <div class="columns is-mobile">
                        
                           <div class="column is-one-third marginBottom30">
@@ -522,15 +574,19 @@
         <!-- step #4 -->
                 <div class="step-content has-text-centered">
 
-                    <h1 class="title is-3 has-text-centered marginBottom20">Submit</h1>
 
-                    <a href="success.html" class="button is-success is-large is-fullwidth">Create Account</a>
+                  <!-- 
+                    <input type="submit">
+                  -->
+
+                    <a href="success.html" class="button is-success is-large is-fullwidth height100">Create Account</a>
                 </div>
 
 
-        <!-- ========= /form ========= -->
+        <!-- ============================= -->
+        <!-- ======== end of form ======== -->
+        <!-- ============================= -->
         </form>
-
 
         <!-- /step #4 -->
 
@@ -550,10 +606,6 @@
             <script type="text/javascript" src="https://wikiki.github.io/node_modules/bulma-extensions/bulma-steps/dist/js/bulma-steps.min.js"></script>
             <script>bulmaSteps.attach();</script>
 
-            <!-- attach calendar component
-            <script src="bulma-calendar/dist/js/bulma-calendar.min.js"></script>
-            <script>bulmaCalendar.attach();</script>
-          -->
         </div>
     </section>
 

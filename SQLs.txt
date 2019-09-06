@@ -25,16 +25,25 @@ SELECT * FROM availability WHERE day_name = 'Monday'
 SELECT * FROM availability WHERE day_part = 'Lunch'
 
 
-SELECT workers.id, workers.fName, workers.lName, skills.skill_description, availability.day_name, availability.day_part, availability.start_date, availability.end_date
+----------------------------------------------------------------------------------
+------- Select workers based on day and day part, grouped by worker_id -----------
+----------------------------------------------------------------------------------
+SELECT workers.id, workers.fName, workers.lName, workers.phone, workers.email, availability.start_date, availability.end_date
 
 
 FROM ((availability
+
+
 INNER JOIN workers ON availability.worker_id = workers.id)
 
 INNER JOIN skills ON availability.worker_id = skills.worker_id)
 
 
-WHERE day_name = 'Monday' AND skill_description = 'Server' AND day_part = 'Lunch'
+WHERE day_name = 'Monday' 
+AND day_part = 'Lunch'
+
+
+GROUP BY workers.id
 
 
 
