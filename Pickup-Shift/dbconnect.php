@@ -1,6 +1,6 @@
 <?php
 
-function getDatabase() {
+function db_Connect() {
     $config = array (
             'DB_DNS' => 'mysql:host=ict.neit.edu;port=5500;dbname=se266_001248229',
             'DB_USER' => 'se266_001248229',
@@ -12,7 +12,7 @@ function getDatabase() {
     
     return $db;
 }
-$db = getDatabase();
+$db = db_Connect();
 print_r ($db);
 
 ?>

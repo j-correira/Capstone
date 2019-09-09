@@ -1,30 +1,51 @@
 <?php
 
-//check if Post request is made
+include ('dbconnect.php');
+$db =  db_Connect();  
+
+
+
+
+
+///////////////////////////////////////////////
+/////////////// post request //////////////////
+///////////////////////////////////////////////
+
 function isPostRequest()
 {
     return ( filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST' );
 }
 
-//check if Get request is made
-function isGetRequest() {
-    return ( filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'GET' );
+
+
+
+
+
+
+function testOutput_AvailMonday()
+{
+    $sql = "SELECT * FROM availability WHERE day_name = 'Monday'";
+    return (getRecords($sql));
+}
+
+
+function testOutput_workers()
+{
+    $sql = "SELECT * FROM workers";
+    return (getRecords($sql));
 }
 
 
 
+//////////////////////////////////////////////////////////
+/////////////// search output functions //////////////////
+//////////////////////////////////////////////////////////
 
-
-//get all restaurant users
-//search values:
-//      skills
-//      yearsExperience
-//      availability (monday - sunday)
-
-function getAllTestData(){
-    $db = getDatabase();
-           
-    $stmt = $db->prepare("SELECT * FROM restaurants");
+function getRecords ($sql)
+{
+    global $db;
+    
+    $stmt = $db->prepare($sql);
      $results = array();
      if ($stmt->execute() && $stmt->rowCount() > 0) {
          $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -34,48 +55,41 @@ function getAllTestData(){
 
 
 
-//get all worker users
-function getAllTestData(){
-    $db = getDatabase();
-           
-    $stmt = $db->prepare("SELECT * FROM workers");
-     $results = array();
-     if ($stmt->execute() && $stmt->rowCount() > 0) {
-         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-     }
-    return $results;
-}
-
-
-
-//returns search for workers
-function returnSearch($searchWord, $column)
-{       
-        //db connection
-        $db = getDatabase();
-
-        //SQL statement
-        $stmt = $db->prepare("SELECT * FROM schools WHERE $column LIKE :search");
-       
-        //search word = wildcard
-        $search = '%'.$searchWord.'%';
-        
-        $binds = array(
-        ":search" => $search 
-        );
-
-        //execute SQL
-        $results = array();
-        if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
-            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//display results
+function displayTable ($records) {
+   $number_of_records = count ($records);
+   echo "<p>$number_of_records records found.</p>";
+   if ($number_of_records > 0) {
+       // get headers
+       $fields = array_keys ($records[0]);
+      
+       echo "<div class='table_wrapper'>";
+       echo "<table class='table is-fullwidth'>";
+       echo "<thead>";
+       echo "<tr>";
+        foreach ($fields as $f) {
+            echo "<th>$f</th>";
         }
-        
-        return $results;
+        echo "</tr>";
+        echo "</thead>";
+        foreach ($records as $record) {
+            echo "<tr>";
+            foreach ($record as $field) {
+                echo "<td>$field</td>";
+            }
+            echo "</tr>";
+        }
+        echo "</table>";
+        echo "</div>";
+   }
+   
 }
 
 
 
-   
+
+
 
 
 ?>
+

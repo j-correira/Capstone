@@ -1,0 +1,5 @@
+<?php
+echo "whatsup";
+phpinfo();
+
+?>
