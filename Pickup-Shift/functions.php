@@ -17,7 +17,40 @@ function isPostRequest()
 }
 
 
+function workerSearch($searchSkill)
+{       
+    //db connection
+    $db = db_Connect();
+    //SQL statement
+    $stmt = $db->prepare("SELECT workers.id, workers.fName, workers.lName, skills.skill_description, workers.phone, workers.email, availability.start_date, availability.end_date
 
+
+FROM ((availability
+
+
+INNER JOIN workers ON availability.worker_id = workers.id)
+
+INNER JOIN skills ON availability.worker_id = skills.worker_id)
+
+
+WHERE skill_description = :search
+GROUP BY workers.id");
+      
+    //search word = wildcard
+    $search = $searchSkill;
+    
+    $binds = array(
+    ":search" => $search,
+    );
+    
+    //execute SQL
+    $results = array();
+    if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+        
+    return $results;
+}
 
 
 

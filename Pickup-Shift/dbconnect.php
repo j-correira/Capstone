@@ -13,6 +13,6 @@ function db_Connect() {
     return $db;
 }
 $db = db_Connect();
-print_r ($db);
+//print_r ($db);
 
 ?>

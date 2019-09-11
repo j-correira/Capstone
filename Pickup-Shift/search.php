@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -27,8 +29,14 @@
       document.getElementById(tabName).style.display = "block";
       evt.currentTarget.className += " is-active";
     }
-    </script>
+   
+    
+</script>
+    
 
+
+    
+    
   </head>
 
 
@@ -44,8 +52,15 @@
 
                   <nav class="tabs is-centered is-large is-toggle is-fullwidth">
                         <div class="container">
+                            
+                            
+                            <!-- ============================= -->
+                            <!-- ======== begin form ========= -->
+                            <!-- ============================= -->
+                            <form id="searchWorker" method="get" action="searchResults.php">
+                            
                           <ul>
-                            <li class="tab is-active" onclick="openTab(event,'Search')">
+                            <li class="tab is-active" onclick="openTab(event,'Search')"> 
                                 <a>
                                 <span class="icon is-small"><i class="fas fa-search" aria-hidden="true"></i></span>
                                 Search
@@ -69,9 +84,9 @@
                             <h1 class="title is-3 has-text-centered">I'm looking for...</h1>
                             <div class="columns is-mobile">
 
-                                    <div class="columns is-mobile">               
-                      
-                        <div class="column is-half">                       
+                                    <div class="column is-half">
+    
+                                            
                             <div class="field">
                                 <input class="is-checkradio is-medium" id="server_CB" type="checkbox" name="server_CB">
                                 <label for="server_CB">Server</label>
@@ -136,35 +151,11 @@
                                     <label for="busser_CB">Busser</label>
                                   </div>
                             </div>
+                            
+                        </div>
 
-                                    <hr>
-            
-                                    <div class="columns is-mobile is-centered" style="
-                                    padding-top: 15px;">
-                                    
-                                        <div class="column is-full">    
-                                            <h1 class="title is-3 has-text-centered">That has...</h1>                     
-                                                <div class="select is-medium is-rounded is-fullwidth">
-                                                    <select name="yearsExperience" >
-                                                    <option>Years of Experience</option>
-                                                    <option>< 1 Year Experience</option>
-                                                    <option>1-2 Years Experience</option>
-                                                    <option>2-3 Years Experience</option>
-                                                    <option>3-4 Years Experience</option>
-                                                    <option>5+ Years Experience</option>
-                                                    </select>
-                                                </div>
-                                              
-                                              <!-- dropdown menu javascript -->
-                                              <script>
-                                                  var dropdown = document.querySelector('.dropdown');
-                                                  dropdown.addEventListener('click', function(event) {
-                                                  event.stopPropagation();
-                                                  dropdown.classList.toggle('is-active');
-                                                  });
-                                              </script>
-                                       </div><!-- /column -->
-                                    </div><!-- /columns is-mobile is-centered -->
+  
+           
 
                                     <hr>
 
@@ -382,24 +373,36 @@
                         </div>
                         <!-- /sunday -->
 
-                                        <hr>
+                        
 
-                                        <div class="field">
-                                                <button class="button is-success is-large is-fullwidth" onclick="openTab(event,'Results')">
-                                                    Search
-                                                </button>
-                                            </div>
+                        <hr>
 
+                        <div class="field">
+                            <input name="searchValueWorkers" type="search" placeholder="Worker Skill" class="form-control" style="width:145px; display: inline;" />
+                            
+                            <input type="submit" class="button is-success is-large is-fullwidth" name="submit" value="Search Workers">
+
+                        </div>
+
+                        
+                        </div><!-- /steps-content -->
+                                    
+                                    
                     </div>
-
+                                    
+                        <!-- ============================= -->
+                        <!-- ========  end form  ========= -->
+                        <!-- ============================= -->
+                        </form>
 
                     <div id="Results" class="content-tab" style="display:none">
                             <h1 class="title is-4 has-text-centered"><u>Search results will go here!</u></h1>
                     </div>
                 </div>
-
-
+     
+      
     </div>
   </section>
   </body>
 </html>
+
