@@ -15,15 +15,21 @@
   <body>
   <section class="section">
     <div class="container">
+        
+
 
       <?php 
         if ($_REQUEST['submit'] == "Search Workers") {
-          $searchSkill = $_GET["searchValueWorkers"];
+          
+           
+            
+          $searchSkill = $_GET["skill_CB"];
           echo "<h3>Skill being searched for: <u><h3 style='color:green'>$searchSkill</h3></u></h3><br>";
           //print "search for customers";
           $result = workerSearch($searchSkill);
           //var_dump ($result);
           displayTable($result);
+           
       }
       ?>    
         
