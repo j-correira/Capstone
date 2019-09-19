@@ -60,8 +60,51 @@ include 'functions.php';
   })
         </script>
 
+<style>
+/* ========================= */
+/* ==== calendar styles ==== */
+/* ========================= */
 
+ /* Removes the clear button from date inputs */
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
 
+/* Removes the spin button */
+input[type="date"]::-webkit-inner-spin-button { 
+    display: none;
+}
+
+/* Always display the drop down caret */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: #2c3e50;
+}
+
+/* A few custom styles for date inputs */
+input[type="date"] {
+
+    height: 50px;
+    width: 150px;
+
+    appearance: none;
+    -webkit-appearance: none;
+    color: #95a5a6;
+    font-family: "Helvetica", arial, sans-serif;
+    font-size: 18px;
+    border:1px solid #ecf0f1;
+    background:#ecf0f1;
+    padding:5px;
+    display: inline-block !important;
+    visibility: visible !important;
+}
+
+input[type="date"], focus {
+    color: #95a5a6;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+  </style>
 
 
     </head>
@@ -244,7 +287,7 @@ include 'functions.php';
                     <div class="columns is-mobile marginBottom20">
                     
                     <div class="column is-half">
-                    <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;">End Date</h1>
+                    <h1 class="title is-4 has-text-centered is-marginless" style="padding-bottom: 10px;">Start Date</h1>
                         
                   <!-- start date input -->
                   <input type="date" name="startDate" id="startDate">
@@ -281,17 +324,20 @@ include 'functions.php';
 
 
             <?php
+            
+            
+            
             if ($_REQUEST['submit'] == "Search Workers") {
 
                 $searchDay = $_GET["dayAvailable"];
                 $searchDayPart = $_GET["dayPart"];
                 $searchSkill = $_GET["skill_CB"];
-                $searchStartDate = $_GET["startDate"];
-                $searchEndDate = $_GET["endDate"];
+                $startDate = $_GET["startDate"];
+                $endDate = $_GET["endDate"];
                 
-                echo "<h3 class='subtitle is-5 has-text-centered is-marginless'><b>Searching for a:</b><br><u>$searchSkill</u> on <u>$searchDay</u><br>during <u>$searchDayPart</u><br>between <u>$searchStartDate</u> and <u>$searchEndDate</u></h3><br>";
+                echo "<h3 class='subtitle is-5 has-text-centered is-marginless'><b>Searching for:</b><br><u>$searchSkill</u> on <u>$searchDay</u> during <u>$searchDayPart</u><br><br>between<br><u>$startDate</u> and <u>$endDate</u></h3><br>";
 
-                $result = workerSearch($searchSkill, $searchDay, $searchDayPart);
+                $result = workerSearch($searchSkill, $searchDay, $searchDayPart, $startDate, $endDate);
 
                 displayTable($result);
             }

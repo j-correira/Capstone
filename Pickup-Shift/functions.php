@@ -17,18 +17,18 @@ function isPostRequest()
 }
 
 
-function workerSearch($searchSkill, $searchDay, $searchDayPart)
+function workerSearch($searchSkill, $searchDay, $searchDayPart, $startDate, $endDate)
 {       
     //db connection
     $db = db_Connect();
     
     //SQL statement
         $stmt = $db->prepare(
-    "SELECT workers.fName, workers.lName
+    "SELECT workers.ID, CONCAT (workers.fName, ' ', workers.lName) AS Name
     FROM ((availability
     INNER JOIN workers ON availability.worker_id = workers.id)
-    INNER JOIN skills ON availability.worker_id = skills.worker_id)
-    WHERE (skill_description = :search AND day_name = :search2 AND day_part = :search3)
+    INNER JOIN employee_skills ON availability.worker_id = employee_skills.worker_id)
+    WHERE (skill_description = :search AND day_name = :search2 AND day_part = :search3 AND start_date <= :search4 AND end_date > :search5)
   
     GROUP BY workers.id");
     
@@ -48,10 +48,12 @@ function workerSearch($searchSkill, $searchDay, $searchDayPart)
      * 
      */
       
-    //search word = wildcard
+    //search word
     $search = $searchSkill;
     $search2 = $searchDay;
     $search3 = $searchDayPart;
+    $search4 = $startDate;
+    $search5 = $endDate;
     
     //$search4 = $searchStartDate;
     //$search5 = $searchEndDate;
@@ -60,8 +62,8 @@ function workerSearch($searchSkill, $searchDay, $searchDayPart)
     ":search" => $search,
     ":search2" => $search2,
     ":search3" => $search3,
-    //":search4" => $search4,
-    //":search5" => $search5,
+    ":search4" => $search4,
+    ":search5" => $search5
     );
     
     //execute SQL
@@ -130,12 +132,12 @@ function displayTable ($records) {
         foreach ($records as $record) {
             echo "<tr>";
             foreach ($record as $field) {
-                echo "<td>$field</td>";     
+                echo "<td style='font-size: 18px;'>$field</td>";     
                  
             }
             
             //outputs view profile button for each record returned
-            echo "<td><a href='#' class='button is-small is-fullwidth is-success'>View Profile</a></td>"; 
+            echo "<td><a target='_blank' class='button is-small is-fullwidth is-success' style='font-size:20px;' href='viewProfile.php?id=" . $record['ID'] . "'" . ">View Profile</a></td>";  
             
             echo "</tr>";
             

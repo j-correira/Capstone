@@ -52,7 +52,7 @@
             
             $binds = array(
                 ":rest_email" => $restEmail,
-                ":rest_pass2" => $restPass,
+                ":rest_pass2" => SHA1($restPass),
                 ":rest_name" => $restName,
                 ":rest_site" => $restSite,
                 ":rest_phone" => $restPhone,
@@ -62,15 +62,12 @@
             
             if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
                 $results = 'Restaurant Added!';
+                
+                            header("location:success.html");
+
             }
         }        
     ?>
-    
-    
-    
-    
-    
-    
 
   </head>
 
@@ -86,7 +83,7 @@
 
             <!-- <a href="index.html" class="button is-rounded is-medium" style="margin-bottom:20px;"><i class="fas fa-arrow-left"></i> &nbsp;Back</a> -->
             
-            <h1 class="title is-2 has-text-centered">Restaurant Sign Up</h1>
+            <h1 class="title is-2 has-text-centered">Restaurant Signup</h1>
             <p class="subtitle is-5 has-text-centered">Create your restaurants profile</p>
             <hr>
 
@@ -123,8 +120,10 @@
         <div class="steps-content">
           <hr style="margin-top:0px;">
             <div class="step-content has-text-centered is-active">
-              <a href="#"><h1 class="title has-text-centered has-text-grey-light is-marginless"><i class="fas fa-user-circle fa-3x"></i></h1>
-              <p class="has-text-centered">Upload Profile Pic</p></a>
+            <!--  <a href="#"><h1 class="title has-text-centered has-text-grey-light is-marginless"><i class="fas fa-user-circle fa-3x"></i></h1>
+              <p class="has-text-centered">Upload Profile Pic</p></a>-->
+                <h1 class="title is-4 has-text-centered">Restaurant Info</h1>
+            
               <br>
             
               <input class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Restaurant Name" name="rest_name">
@@ -136,7 +135,9 @@
 
         <!-- step #2-->
         <div class="step-content has-text-centered">     
-            <input class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Restaurant Bio" name="rest_bio">
+            <!-- <input class="input is-medium" style="margin-bottom:15px;" type="text" placeholder="Restaurant Bio" name="rest_bio"> -->
+            <textarea class="textarea is-medium" style="margin-bottom:15px;" placeholder="Restaurant Bio"></textarea>
+
         </div>   
         
             <!--    bio input via text area (creates undefined variable)
@@ -163,7 +164,7 @@
                     
                     <h1><?php echo $results; ?></h1>
                     
-                    <input type="submit" class="button is-success is-large is-fullwidth" value="Create Account W/ PHP">
+                    <input type="submit" class="button is-success is-large is-fullwidth" style="height:100px;" value="Create Account">
                     <br>
                     <br>
                     <br>

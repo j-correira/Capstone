@@ -15,7 +15,6 @@
 session_start();
 
 //include outside files
-include './dbconnect.php';
 include './functions.php';
 
 //if (isset($_POST['username']) and isset($_POST['password'])){
